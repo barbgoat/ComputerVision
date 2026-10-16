@@ -1,0 +1,5 @@
+# Configuração real (S/N da câmara, IPs da câmara e do PLC): NÃO versionar.
+# Só o modelo config.example.toml vai para o Git.
+*
+!.gitignore
+!config.example.toml

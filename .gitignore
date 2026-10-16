@@ -1,0 +1,20 @@
+# --- Dados de rede / equipamento: NAO versionar ---
+# config/config.toml e protegido pelo config/.gitignore
+# Testing.ini = projeto do PLC (inclui o IP do PLC)
+Testing.ini
+
+# --- Ambiente e caches ---
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# --- Dados gerados em producao / captura ---
+# resultados/ = logs CSV e imagens NOK; img_camara/ = capturas da camara
+resultados/
+img_camara/
+
+# --- Editor / sistema ---
+.vscode/
+.idea/
+Thumbs.db

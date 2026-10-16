@@ -1,0 +1,42 @@
+# Modelo do config.toml (este ficheiro É versionado; o config.toml real não).
+# Copiar para config\config.toml e preencher os valores reais:
+#   copy config\config.example.toml config\config.toml
+
+[camara]
+serial = ""               # S/N da câmara Basler (a câmara abre-se sempre pelo S/N)
+ip = ""                   # informativo
+exposicao_us = 9000.0     # ExposureTimeAbs (modelo legacy); original é reposto à saída
+ganho_raw = -1            # GainRaw; -1 = não alterar
+timeout_ms = 2000
+
+[roi]
+# Região de interesse em píxeis; largura/altura = 0 usa a imagem inteira
+x = 0
+y = 0
+largura = 0
+altura = 0
+
+[descodificacao]
+formatos = "All"          # todos os formatos do zxing-cpp (1D e 2D); ou lista: "EAN13,DataMatrix"
+tentar_rodar = true       # tenta também rodar 90/180/270
+localizar_roi = true      # N2: localizar a ROI e tentar variações
+max_candidatos = 4        # n.º máximo de ROI candidatas a tentar
+margem = 0.15             # folga à volta de cada ROI candidata
+usar_cv_barcode = true    # N2: também usa cv2.barcode.BarcodeDetector para localizar ROI 1D
+ampliar = [2.0, 3.0]      # fatores de ampliação do recorte
+
+[validacao]
+codigo_esperado = ""      # vazio = sem OK/NOK; aceita 12 (sem dígito de controlo) ou 13 dígitos
+
+[produtos]
+ficheiro = "produtos.csv"   # codigo;produto (EAN 12 ou 13 dígitos, ou qualquer outro código)
+
+[registo]
+pasta = "resultados"
+guardar_nok = true
+
+[plc]
+ativo = false             # só na etapa 5, e inicialmente só leitura
+ip = ""                   # IP do PLC
+porta = 502
+unit_id = 1
